@@ -35,6 +35,7 @@ class WeatherViewModel(
         }
     }
 
+    //todo: use Flow
     private val _forecast: MutableLiveData<WeatherUiState> = MutableLiveData(WeatherUiState())
     val forecast: LiveData<WeatherUiState> = _forecast
 
