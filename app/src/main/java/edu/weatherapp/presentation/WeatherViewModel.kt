@@ -11,6 +11,7 @@ import edu.weatherapp.data.CoordinatesApi
 import edu.weatherapp.data.WeatherApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -42,13 +43,15 @@ class WeatherViewModel(
     fun getForecast() {
         currentForecastJob?.cancel()
         currentForecastJob = viewModelScope.launch {
+            _forecast.value = _forecast.value.copy(isLoading = true)
+            
             val location = _forecast.value.location
-
             val (lat, lon) = withContext(Dispatchers.Default) {
                 coordinatesApi.coordinates(location)
                     .map { it.lat to it.lon }.first()
             }
             val uiState = withContext(Dispatchers.Default) {
+                delay(500)
                 val weatherResponse = weatherApi.currentWeather(lat, lon)
                 uiStateMapper.map(weatherResponse)
             }

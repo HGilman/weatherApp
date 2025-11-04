@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat
 
 class UiStateMapper {
 
-    private val dateFormat = "dd MMMM, HH:mm"
+    private val dateFormat = "dd MMMM, HH:mm:ss"
 
     private val simpleDateFormat: SimpleDateFormat by lazy {
         SimpleDateFormat(dateFormat)
@@ -16,7 +16,8 @@ class UiStateMapper {
 
         return WeatherUiState(
             temp = current.temp,
-            time = simpleDateFormat.format(current.dt)
+            time = simpleDateFormat.format(current.dt),
+            isLoading = false
         )
     }
 }

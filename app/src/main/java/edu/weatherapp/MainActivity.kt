@@ -3,6 +3,7 @@ package edu.weatherapp
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import dev.androidbroadcast.vbpd.viewBinding
 import edu.weatherapp.databinding.MainActivityBinding
 import edu.weatherapp.presentation.WeatherUiState
@@ -22,6 +23,8 @@ class MainActivity : AppCompatActivity(R.layout.main_activity) {
             viewBinding.location.text = getString(R.string.location, uiState.location)
             viewBinding.temperature.text = getString(R.string.temperature, uiState.temp)
             viewBinding.date.text = getString(R.string.date, uiState.time)
+            viewBinding.loadingIndicator.isVisible = uiState.isLoading
+            viewBinding.button.isEnabled = !uiState.isLoading
         }
 
         viewBinding.button.setOnClickListener {
