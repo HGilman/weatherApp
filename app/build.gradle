@@ -52,6 +52,7 @@ dependencies {
     implementation libs.androidx.appcompat
     implementation libs.material
     implementation libs.androidx.activity.ktx
+    implementation libs.androidx.fragment.ktx
     implementation libs.viewBindingPropertyDelegate
 
     // viewModel
@@ -60,5 +61,8 @@ dependencies {
     // networking
     implementation libs.retrofit
     implementation libs.retrofitConverterGson
+
+    // DataStore
+    implementation libs.dataStore
 
 }

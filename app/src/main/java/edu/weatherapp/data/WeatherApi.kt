@@ -20,6 +20,6 @@ data class CurrentWeatherResponse(
 
 data class Current(
     val dt: Date, // milliseconds
-    val temp: String
+    val temp: Double
 )
 

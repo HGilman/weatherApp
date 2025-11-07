@@ -1,21 +1,24 @@
-package edu.weatherapp.presentation
+package edu.weatherapp.main.presentation
 
 import edu.weatherapp.data.CurrentWeatherResponse
 import java.text.SimpleDateFormat
+import kotlin.math.roundToInt
 
-class UiStateMapper {
+class MainUiStateMapper {
 
     private val dateFormat = "dd MMMM, HH:mm:ss"
 
     private val simpleDateFormat: SimpleDateFormat by lazy {
         SimpleDateFormat(dateFormat)
     }
+    fun map(
+        currentUiState: MainUiState,
+        currentWeatherResponse: CurrentWeatherResponse
+    ): MainUiState {
 
-    fun map(currentWeatherResponse: CurrentWeatherResponse): WeatherUiState {
         val current = currentWeatherResponse.current
-
-        return WeatherUiState(
-            temp = current.temp,
+        return currentUiState.copy(
+            temp = current.temp.roundToInt().toString(),
             time = simpleDateFormat.format(current.dt),
             isLoading = false
         )

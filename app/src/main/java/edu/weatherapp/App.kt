@@ -3,8 +3,9 @@ package edu.weatherapp
 import android.app.Application
 import edu.weatherapp.data.CoordinatesApi
 import edu.weatherapp.data.WeatherApi
+import edu.weatherapp.data.WeatherDataStore
 import edu.weatherapp.network.Network
-import edu.weatherapp.presentation.UiStateMapper
+import edu.weatherapp.main.presentation.MainUiStateMapper
 
 class App : Application() {
 
@@ -12,5 +13,7 @@ class App : Application() {
 
     val coordinatesApi: CoordinatesApi by lazy { Network.coordinatesApi }
 
-    val uiStateMapper: UiStateMapper by lazy { UiStateMapper() }
+    val uiStateMapper: MainUiStateMapper by lazy { MainUiStateMapper() }
+
+    val dataStore: WeatherDataStore by lazy { WeatherDataStore(this) }
 }

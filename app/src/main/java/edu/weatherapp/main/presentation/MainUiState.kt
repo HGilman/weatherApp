@@ -1,10 +1,10 @@
-package edu.weatherapp.presentation
+package edu.weatherapp.main.presentation
 
 const val DEFAULT_LOCATION = "Moscow"
 
-data class WeatherUiState(
+data class MainUiState(
     val time: String? = null,
     val temp: String? = null,
     val location: String = DEFAULT_LOCATION,
-    val isLoading: Boolean = false
+    val isLoading: Boolean = true
 )

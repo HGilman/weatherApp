@@ -3,4 +3,5 @@
     <string name="location">Город: %1$s</string>
     <string name="temperature">Температура: %1$s градусов</string>
     <string name="date">Дата: %1$s</string>
+    <string name="choose_city_hint">Введите город</string>
 </resources>
