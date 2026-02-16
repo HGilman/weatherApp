@@ -65,4 +65,7 @@ dependencies {
     // DataStore
     implementation libs.dataStore
 
+    // arch
+    implementation(project(":arch"))
+
 }

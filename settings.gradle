@@ -20,4 +20,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "WeatherApp"
-include ':app'
+include ':arch'
+include ':mvi-sample'
+include ':mviStore'
